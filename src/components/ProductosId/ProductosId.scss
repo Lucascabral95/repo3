@@ -1,0 +1,127 @@
+body {
+
+    .container {
+        margin-top: 2%;
+        margin-bottom: 2%;
+        background-color: white;
+        border-radius: 60px;
+        box-shadow: 0 0 20px grey;
+
+        .row {
+            display: flex;
+            justify-content: center;
+            padding: 60px;
+
+            .card {
+                margin: 6px;
+            }
+
+
+            .producto-imagen {
+                width: 80%;
+                height: 580px;
+                float: left;
+                margin-right: 20px;
+            }
+
+            .producto-info {
+                overflow: hidden;
+            }
+
+            .producto-titulo {
+                font-size: 38.4px;
+                font-weight: bold;
+                margin-top: 16px;
+                margin-bottom: 50px;
+            }
+
+            .producto-precio {
+                font-size: 28.8px;
+                font-weight: bold;
+            }
+
+            .producto.categoria {
+                font-size: 22.4px;
+                font-style: italic;
+            }
+
+            .cantidad {
+                display: inline-block;
+                margin-right: 10px;
+            }
+
+            .btn-cantidad {
+                font-size: 18px;
+                padding: 0 10px;
+            }
+
+            .btn-actualizacion {
+                font-size: 18px;
+                margin-right: 20px;
+            }
+        }
+    }
+}
+
+
+@media (min-width: 767px) and (max-width: 992px) {
+    body {
+        .container {
+            .row {
+                display: flex;
+                align-items: center;
+
+                .producto-imagen {
+                    width: 80%;
+                    height: 360px;
+                    float: left;
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 424px) and (max-width: 760px) {
+    body {
+        .container {
+            .row {
+
+                .producto-imagen {
+                    width: 80%;
+                    height: 300px;
+                    float: left;
+                    margin-right: 20px;
+                    margin-left: 10%;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 374px) and (max-width: 423px){
+    body{
+        .container{
+            .row{
+                .producto-imagen{
+                    width: 80%;
+                    height: 300px;
+                    float: left;
+                    margin-right: 20px;
+                    margin-left: 10%;
+                }
+                .producto-titulo {
+                    font-size: 2.2rem;
+                    font-weight: bold;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                }
+    
+                .producto-precio {
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

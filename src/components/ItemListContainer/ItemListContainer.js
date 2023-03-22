@@ -1,32 +1,46 @@
 import "./ItemListContainer.scss"
-import Swal from "sweetalert2";
-import PikachuSaludo from "../../assets/img/pikachu-exito.png"
+import React, { useState, useEffect } from "react"
+import mockData from "../../data/MOCK_DATA.json"
+import { Link } from "react-router-dom"
+import Slide from "../Slide/Slide"
 
-const ItemListContainer = ({ greeting, texto }) => {
-  const handleClick = () => {
-    Swal.fire({
-      title: "¡Hola, visitante!",
-        text: "¡La Tienda Oficial de Pokemon estará disponible muy pronto! ¡Sonríe!",
-      imageUrl: PikachuSaludo,
-      icon: "success",
-      confirmButtonText: "Cerrar",
-    });
-  };
+
+function Contador() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    setData(mockData);
+  }, []);
 
   return (
-    <div className="container">
-      <div className="row">
-        <div>
-          <h3 className="texto-greeting text-center">{greeting}</h3>
-          <img className="mx-auto d-block" src="https://media4.giphy.com/media/e4PkUJXi88n1C/giphy.gif?cid=ecf05e47gmnj63hotsmjm90hyc9xidbmj9n18pgc5w3dnfr3&rid=giphy.gif&ct=g" alt="Saludo de Pikachu"/>
-          <p className="text-center"> {texto} </p>
 
-          <button className="btn btn-danger mx-auto d-block" onClick={handleClick}>Click me, please</button>
+    <div className="container-fluid">
+      <Slide />
 
+      <div className="container">
+        <h1>Tienda Oficial de Pokemon</h1>
+
+        <div className="row">
+          {data.map((producto) => (
+            <div className="card" style={{ width: "18rem" }} key={producto.id}>
+              <img
+                src={producto.imagen}
+                className="card-img-top"
+                alt={producto.nombre}
+              />
+              <div className="card-body">
+                <h5 className="card-title">{producto.nombre}</h5>
+                <p className="card-text">{producto.descripcion}</p>
+                <p>Categoría: {producto.categoria}</p>
+                <Link to={`/productos/detalle/${producto.id}`} className='btn btn-primary'>Ver más</Link>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
+
     </div>
   );
-};
+}
 
-export default ItemListContainer;
+export default Contador;

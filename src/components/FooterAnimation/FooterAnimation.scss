@@ -1,0 +1,278 @@
+.footer-animation {
+
+    background-image: url("https://img.freepik.com/vector-gratis/fondo-galaxia-acuarela-pintada-mano_52683-63441.jpg");
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30vh;
+    overflow: hidden;
+    margin-top: 3%;
+
+    .div-arcoiris {
+        .pika-arcoiris {
+            width: 30%;
+            height: auto;
+
+            animation: zigzag 6s linear infinite;
+            animation-timing-function: linear;
+        }
+    }
+
+    .poke-bola {
+        width: 9%;
+        height: auto;
+    }
+
+    @media (min-width: 1900px) {
+        @keyframes zigzag {
+            0% {
+                transform: translateX(0%) translateY(0%) scale(1);
+            }
+
+            12.5% {
+                transform: translateX(72.68%) translateY(60%) scale(1);
+            }
+
+            25% {
+                transform: translateX(159.77%) translateY(0%) scale(1);
+            }
+
+            37.5% {
+                transform: translateX(239.67%) translateY(-60%) scale(1);
+            }
+
+            50% {
+                transform: translateX(319.57%) translateY(0%) scale(1);
+            }
+
+            62.5% {
+                transform: translateX(399.45%) translateY(60%) scale(1);
+            }
+
+            75% {
+                transform: translateX(479.34%) translateY(0%) scale(1);
+            }
+
+            87.5% {
+                transform: translateX(559.26%) translateY(-60%) scale(0.8);
+            }
+
+            100% {
+                transform: translateX(639.14%) translateY(0%) scale(0.30);
+            }
+        }
+    }
+
+    @media (min-width: 2559px) and (max-width:2562px) {
+        @keyframes zigzag {
+
+            0% {
+                transform: translateX(0%) translateY(0%) scale(1);
+            }
+
+            12.5% {
+                transform: translateX(100.9625%) translateY(85%) scale(1);
+            }
+
+            25% {
+                transform: translateX(221.925%) translateY(0%) scale(1);
+            }
+
+            37.5% {
+                transform: translateX(332.8875%) translateY(-85%) scale(1);
+            }
+
+            50% {
+                transform: translateX(443.85%) translateY(0%) scale(1);
+            }
+
+            62.5% {
+                transform: translateX(554.8125%) translateY(85%) scale(1);
+            }
+
+            75% {
+                transform: translateX(665.775%) translateY(0%) scale(1);
+            }
+
+            87.5% {
+                transform: translateX(776.7375%) translateY(-85%) scale(0.8);
+            }
+
+            100% {
+                transform: translateX(887.7%) translateY(0%) scale(0);
+            }
+        }
+    }
+
+    @media (min-width: 1439px) and (max-width: 1460px) {
+        @keyframes zigzag {
+
+            0% {
+                transform: translateX(0%) translateY(0%) scale(1);
+            }
+
+            12.5% {
+                transform: translateX(53.91%) translateY(45%) scale(1);
+            }
+
+            25% {
+                transform: translateX(118.50%) translateY(0%) scale(1);
+            }
+
+            37.5% {
+                transform: translateX(177.75%) translateY(-45%) scale(1);
+            }
+
+            50% {
+                transform: translateX(237.01%) translateY(0%) scale(1);
+            }
+
+            62.5% {
+                transform: translateX(296.26%) translateY(45%) scale(1);
+            }
+
+            75% {
+                transform: translateX(355.52%) translateY(0%) scale(1);
+            }
+
+            87.5% {
+                transform: translateX(414.77%) translateY(-45%) scale(0.8);
+            }
+
+            100% {
+                transform: translateX(474.88%) translateY(0%) scale(0);
+            }
+        }
+
+    }
+
+    @media (min-width: 1023px) and (max-width: 1438px) {
+        @keyframes zigzag {
+
+            0% {
+                transform: translateX(0%) translateY(0%) scale(1);
+            }
+
+            12.5% {
+                transform: translateX(36.50%) translateY(45%) scale(1);
+            }
+
+            25% {
+                transform: translateX(80.15%) translateY(0%) scale(1);
+            }
+
+            37.5% {
+                transform: translateX(120.23%) translateY(-45%) scale(1);
+            }
+
+            50% {
+                transform: translateX(160.31%) translateY(0%) scale(1);
+            }
+
+            62.5% {
+                transform: translateX(200.39%) translateY(45%) scale(1);
+            }
+
+            75% {
+                transform: translateX(240.47%) translateY(0%) scale(1);
+            }
+
+            87.5% {
+                transform: translateX(280.55%) translateY(-45%) scale(0.8);
+            }
+
+            100% {
+                transform: translateX(321.2%) translateY(0%) scale(0);
+            }
+        }
+
+    }
+
+    @media (min-width: 767px) and (max-width: 1022px) {
+        @keyframes zigzag {
+
+            0% {
+                transform: translateX(0%) translateY(0%) scale(1);
+            }
+
+            12.5% {
+                transform: translateX(33.8%) translateY(70%) scale(1);
+            }
+
+            25% {
+                transform: translateX(74.23%) translateY(0%) scale(1);
+            }
+
+            37.5% {
+                transform: translateX(111.35%) translateY(-70%) scale(1);
+            }
+
+            50% {
+                transform: translateX(148.48%) translateY(0%) scale(1);
+            }
+
+            62.5% {
+                transform: translateX(185.60%) translateY(70%) scale(1);
+            }
+
+            75% {
+                transform: translateX(222.72%) translateY(0%) scale(1);
+            }
+
+            87.5% {
+                transform: translateX(259.85%) translateY(-70%) scale(0.8);
+            }
+
+            100% {
+                transform: translateX(297.50%) translateY(0%) scale(0);
+            }
+        }
+    }
+
+    @media (min-width: 420px) and (max-width: 430px) {
+        @keyframes zigzag {
+
+            0% {
+                transform: translateX(0%) translateY(0%) scale(1);
+            }
+
+            12.5% {
+                transform: translateX(34.25%) translateY(170%) scale(1);
+            }
+
+            25% {
+                transform: translateX(75.24%) translateY(0%) scale(1);
+            }
+
+            37.5% {
+                transform: translateX(112.86%) translateY(-170%) scale(1);
+            }
+
+            50% {
+                transform: translateX(150.49%) translateY(0%) scale(1);
+            }
+
+            62.5% {
+                transform: translateX(188.11%) translateY(170%) scale(1);
+            }
+
+            75% {
+                transform: translateX(225.75%) translateY(0%) scale(1);
+            }
+
+            87.5% {
+                transform: translateX(263.37%) translateY(-170%) scale(0.8);
+            }
+
+            100% {
+                transform: translateX(301.54%) translateY(0%) scale(0);
+            }
+        }
+    }
+}
+
+@media (min-width: 2570px) {
+    .footer-animation {
+        display: none;
+    }
+}
