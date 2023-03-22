@@ -47,10 +47,14 @@ const ProductoId = () => {
                         <button className="btn btn-cantidad" onClick={restarCantidad} >-</button>
                         <input type="text" className="form-control d-inline-block" style={{ width: '60px', textAlign: 'center' }}
                             value={cantidad} readOnly />
-
                         <button className="btn btn-cantidad" onClick={sumarCantidad} >+</button>
-                    </div>
+
+                        
                     <button className="btn btn-primary btn-actualizacion" onClick={actualizarCantidad} >Actualizar</button>
+                   
+                   
+                    </div>
+                    {/* <button className="btn btn-primary btn-actualizacion" onClick={actualizarCantidad} >Actualizar</button> */}
                     <button className="btn btn-success">Agregar al Carrito</button>
                 </div>
             </div>
