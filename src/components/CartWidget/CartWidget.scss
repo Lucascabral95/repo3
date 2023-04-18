@@ -1,12 +1,26 @@
 .navbar-nav {
 
+    .wishlist-favoritos{
+        text-decoration: none;
+        font-size: 28.8px;
+        color: yellow;
+        margin-right: 30px;
+    }
+    .wishlist-favoritos:hover{
+        color: red;
+        transition: 0.5s;
+    }
+
     .carrito-navbar {
         color: yellow;
-        font-size: 2rem;
+        font-size: 2.6rem;
     }
 
     .carrito-contador {
         color: red;
         font-size: 1.5rem;
+    }
+    p{
+        color: white;
     }
 }

@@ -2,35 +2,47 @@ import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import mockData from "../data/MOCK_DATA.json"
 import { Link } from "react-router-dom"
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { db } from "../Firebase/config";
 
 
 function Videojuegos() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    const showLoading = async () => {
-      const result = await Swal.fire({
-        title: 'Por favor espere...',
-        imageUrl: "https://www.pngmart.com/files/2/Pikachu-Transparent-Background.png",
-        allowEscapeKey: false,
-        allowOutsideClick: false,
-        timer: 1000,
-        didOpen: () => {
-          Swal.showLoading();
-        }
-      });
+  const q = query(collection(db, "productos-store"), where("categoria", "==", "Videojuego"));
+  getDocs(q).then((querySnapshot) => {
+    const docs = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    setData(docs);
+    setIsLoading(false);
+  }).catch((error) => {
+    console.log("Error getting documents: ", error);
+  });
 
-      if (result.dismiss === Swal.DismissReason.timer) {
-        console.log('Cerrado por temporizador')
-      }
 
-      setData(mockData);
-      setIsLoading(false);
-    };
+  // useEffect(() => {
+  //   const showLoading = async () => {
+  //     const result = await Swal.fire({
+  //       title: 'Por favor espere...',
+  //       imageUrl: "https://www.pngmart.com/files/2/Pikachu-Transparent-Background.png",
+  //       allowEscapeKey: false,
+  //       allowOutsideClick: false,
+  //       timer: 1000,
+  //       didOpen: () => {
+  //         Swal.showLoading();
+  //       }
+  //     });
 
-    showLoading();
-  }, []);
+  //     if (result.dismiss === Swal.DismissReason.timer) {
+  //       console.log('Cerrado por temporizador')
+  //     }
+
+  //     setData(mockData);
+  //     setIsLoading(false);
+  //   };
+
+  //   showLoading();
+  // }, []);
 
   return (
     <div className="container">
