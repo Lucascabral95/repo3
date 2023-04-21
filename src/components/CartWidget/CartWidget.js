@@ -8,19 +8,21 @@ import { AiFillHeart } from "react-icons/ai"
 
 
 const CartWidget = () => {
-  const { contador, setContador, totalCantidad, quantity, setQuantity } = useContext(CartContext)
+  const { contador, setContador, totalCantidad, quantity, setQuantity,
+    wishCantidad, setWishCantidad } = useContext(CartContext)
 
   return (
     <ul className="navbar-nav">
       <li className="nav-item">
-          <Link to="/wishlist" className="wishlist-favoritos"> <AiFillHeart size={36} /> </Link>
+          <span className="carrito-contador">{wishCantidad}</span>
+        <Link to="/wishlist" className="wishlist-favoritos"> <AiFillHeart size={36} /> </Link>
         <Link to="/carrito">
           <IoIosCart
             className="carrito-navbar"
           />
         </Link>
         <span className="carrito-contador">{quantity}</span>
-      
+
       </li>
     </ul>
   );

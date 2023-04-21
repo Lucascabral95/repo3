@@ -1,0 +1,42 @@
+.contenedor-no-purchase {
+    padding-top: 3%;
+    padding-bottom: 3%;
+    background-attachment: fixed;
+    background-size: contain;
+    background-repeat: repeat;
+    background-image: url("https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjkwNC1udW5ueS0wMTAtZl8xLmpwZw.jpg");
+
+
+    img {
+        width: 32%;
+        height: auto;
+        border-radius: 40%;
+        background-color: white;
+        margin: auto;
+        display: block;
+        // background-image: url("https://i.pinimg.com/564x/91/d2/f3/91d2f34b7f3ba660b3c9c6ef3bdef7af.jpg");
+        background-image: url("https://i.pinimg.com/originals/4c/55/9b/4c559b82bae97c0a4031eab5fd4ae36c.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .boton-inicio {
+        display: inline-block;
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 2.4rem;
+        display: block;
+        text-align: center;
+        color: black;
+        margin-top: 4%;
+    }
+
+    @media (min-width: 320px) and (max-width: 426px) {
+        h3 {
+            font-size: 1.4rem;
+        }
+    }
+
+}

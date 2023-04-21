@@ -1,0 +1,73 @@
+.contenedor-compra-confirmadad {
+    padding-top: 3%;
+    padding-bottom: 3%;
+    background-attachment: fixed;
+    background-size: contain;
+    background-repeat: repeat;
+    background-image: url("https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjkwNC1udW5ueS0wMTAtZl8xLmpwZw.jpg");
+
+
+
+    .img-pika-happy {
+        width: 40%;
+        height: auto;
+        border-radius: 50%;
+        background-color: white;
+        margin: auto;
+        display: block;
+        background-image: url("https://i.pinimg.com/564x/91/d2/f3/91d2f34b7f3ba660b3c9c6ef3bdef7af.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    
+    .img-pokee {
+        width: 30%;
+        height: auto;
+        border-radius: 50%;
+        // border: solid 1px black;
+        background-color: white;
+        margin: auto;
+        display: block;
+        background-image: url("https://i.pinimg.com/564x/91/d2/f3/91d2f34b7f3ba660b3c9c6ef3bdef7af.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+
+    h3 {
+        display: block;
+        text-align: center;
+        font-size: 2.8rem; 
+        color: black;
+    }
+
+    span {
+        display: block;
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+.span-id-compra{
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: blue;
+    text-shadow: 10px 10px 20px skyblue;
+}
+
+    @media (min-width: 320px) and (max-width: 426px){
+        h3{
+            font-size: 2rem;
+        }
+    }
+    @media (min-width: 320px) and (max-width: 426px){
+        span{
+            font-size: 0.9rem;
+        }
+    }
+    @media (min-width: 320px) and (max-width: 426px){
+        .span-id-compra{
+            font-size: 1.2rem;
+        }
+    }
+}

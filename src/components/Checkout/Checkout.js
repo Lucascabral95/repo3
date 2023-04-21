@@ -2,11 +2,15 @@ import { useEffect, useState, useContext } from "react"
 import "./Checkout.scss"
 import { CartContext } from "../../Context/CartContext"
 import { db } from "../../Firebase/config"
-import { writeBatch, collection, where, documentId, updateDoc, doc, getDocs, addDoc ,query } from "firebase/firestore"
+import { Link } from "react-router-dom"
+import { writeBatch, collection, where, documentId, updateDoc, doc, getDocs, addDoc, query } from "firebase/firestore"
 
 
 const Checkout = () => {
-    const { cart, setCart, contador, setContador, quantity, setQuantity, total, setTotal, vaciarCarrito, precioSumado, totalSuma, setTotalSuma } = useContext(CartContext);
+    const { cart, setCart, contador, setContador,
+        quantity, setQuantity, total, setTotal, vaciarCarrito, precioSumado,
+        totalSuma, setTotalSuma, idDeCompra, setIdDeCompra, 
+        numeroCompra, setNumeroCompra } = useContext(CartContext);
 
     const [value, setValue] = useState({
         nombre: "",
@@ -16,48 +20,62 @@ const Checkout = () => {
 
 
 
-const handleInputChange = (e) =>{
-    setValue({
-        ...value,
-        [e.target.name] : e.target.value
-    })
-}
+
+    // const [ idDeCompra, setIdDeCompra ] = useState(null)
+
+
+    const handleInputChange = (e) => {
+        setValue({
+            ...value,
+            [e.target.name]: e.target.value
+        })
+    }
 
 
 
-const handleSubmit = async (event) => {
-    event.preventDefault()
+    const handleSubmit = async (event) => {
+        event.preventDefault()
 
-    if (value.nombre.length < 2) {
+        if (value.nombre.length < 2) {
             alert("El nombre es muy corto")
             return
         }
         if (value.email.length < 4) {
-                alert("El email es muy corto")
-                return
-            }
-            if (value.direccion.length < 2) {
-                    alert("La direccion es muy corto")
-                    return
-                }
-                
-                const orden = {
-                    cliente: value,
-                    items: cart,
-                    total: total, 
-                    fyh: new Date
-                }
-                // console.log(orden) 
+            alert("El email es muy corto")
+            return
+        }
+        if (value.direccion.length < 2) {
+            alert("La direccion es muy corto")
+            return
+        }
 
-                const ordersRef = collection(db, "orders")
+        const orden = {
+            cliente: value,
+            items: cart,
+            total: total,
+            fyh: new Date
+        }
+        // console.log(orden) 
 
-                addDoc(ordersRef, orden)
-                .then((doc) => {
-                    console.log(doc.id)                    
-                })
+        const ordersRef = collection(db, "orders")
+
+        addDoc(ordersRef, orden)
+            .then((doc) => {
+                console.log(doc.id)
+                const numeroDeCompra = doc.id
+
+                setNumeroCompra(numeroDeCompra)
                 
-                
+                setIdDeCompra(true)
+                setTimeout(() => {
+                    setIdDeCompra(false)
+                }, 40000)
+            })
+
+
     }
+
+
 
 
     return (
@@ -97,7 +115,15 @@ const handleSubmit = async (event) => {
                         onChange={handleInputChange}
                     />
 
-                    <button className="btn btn-success" type="submit">Enviar</button>
+
+                    {idDeCompra ? (
+                        <Link to="/purchase" className="btn btn-primary" type="submit">Ver numero de compra</Link>
+                        
+                        ) : (
+                            
+                            <button className="btn btn-success" type="submit">Enviar</button>
+                        )}
+
 
                 </form>
 
@@ -129,7 +155,7 @@ const handleSubmit = async (event) => {
                             </div>
 
                         ))}
-                        <div className="checkout-total"> 
+                        <div className="checkout-total">
                             <h2 className="mt-3">Total: ${(total).toLocaleString().replace(",", ".")},00</h2>
                             {/* <h2 className="mt-3">Total: ${(total).toLocaleString()}</h2> */}
                         </div>
