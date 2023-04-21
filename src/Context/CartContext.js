@@ -3,9 +3,22 @@ import { createContext, useEffect, useState } from "react";
 export const CartContext = createContext()
 
 
+const productosLocalStorage = JSON.parse(localStorage.getItem('carrrito') || '[]')
+
+
+
+
 export const CartProvider = ({ children }) => {
 
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState([productosLocalStorage])
+
+
+
+    useEffect(()=>{
+        localStorage.setItem('carrrito', JSON.stringify(cart))
+    },[cart])
+
+
 
     const isInCart = (id) => {
         return cart.some((prod) => prod.id === id)

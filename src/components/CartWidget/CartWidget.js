@@ -7,7 +7,7 @@ import { AiFillHeart } from "react-icons/ai"
 
 
 
-const CartWidget = () => {
+const CartWidget = ( ) => {
   const { contador, setContador, totalCantidad, quantity, setQuantity,
     wishCantidad, setWishCantidad } = useContext(CartContext)
 

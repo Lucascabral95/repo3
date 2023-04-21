@@ -126,12 +126,14 @@ useEffect(() => {
               </td>
               <td className="align-middle">
                 <div className="carrito-precio">
-                  <p>${(item.precio).toLocaleString().replace(",", ".")},00</p>
+                  {/* <p>${(item.precio).toLocaleString().replace(",", ".")},00</p> */}
+                  <p>${item.precio},00</p>
                 </div>
               </td>
               <td className="align-middle">
                 <div className="carrito-precio">
-                  <p>${(item.precio * item.contador).toLocaleString().replace(",", ".")},00</p>
+                  {/* <p>${(item.precio * item.contador).toLocaleString().replace(",", ".")},00</p> */}
+                  <p>${(item.precio * item.contador)},00</p>
                 </div>
               </td>
               <td className="align-middle">
