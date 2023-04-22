@@ -60,10 +60,7 @@ function Contador() {
       setWishProducto([...wishProducto, { ...producto, contador: cantidad }]);
       setWishCantidad(wishCantidad + 1)
     }
-
     setWish(false)
-
-
     setWishlistOn(true)
 
     toast.success(`¡Ha agregado ${producto.categoria} de "${producto.nombre}" a Favoritos!`)
@@ -85,11 +82,9 @@ function Contador() {
 
           <div className="container">
             <h1>Tienda Oficial de Pokemon</h1>
-
             <div className="row">
               {data.map((producto) => (
                 <div className="card" style={{ width: "18rem" }} key={producto.id}>
-
                   <div>
                     <img
                       src={producto.imagen}
@@ -98,27 +93,36 @@ function Contador() {
                       onMouseOver={() => setWish(true)}
                       onMouseOut={() => setWish(false)}
                     />
-
+                    {/* 
                     {wish && (
                       <div onMouseOver={() => setWish(true)} className="icons" onClick={() => handleWish(producto)}>
                         {wish ? <AiOutlineHeart size={25} /> : <AiFillHeart size={25} />}
                       </div>
-                    )}
+                    )} */}
                     <ToastContainer draggable={true} autoClose={3000} position="bottom-right" />
-
                   </div>
 
                   <div className="card-body">
                     <h5 className="card-title">{producto.nombre}</h5>
                     <p className="card-text">{producto.descripcion}</p>
                     <p>Categoría: {producto.categoria}</p>
-                    <Link to={`/productos/detalle/${producto.id}`} className='btn btn-primary'>Ver más</Link>
+                    <ToastContainer draggable={true} autoClose={3000} position="bottom-right" />
+                    <div className="contenedor-botones">
+                      <Link to={`/productos/detalle/${producto.id}`} className='btn btn-primary'>Ver más</Link>
+                      <div className="contenedor-fav-star">
+                        <div className="p-de-fav">
+                          <img src="/img/icon-derecha.gif" />
+                        </div>
+                        <div className="div-estrella-favoritos">
+                          <img className="estrella-favoritos" onClick={() => handleWish(producto)} src="/img/mario-estrella.png" alt="Estrella de Favoritos" />
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-
         </div >
       )
       }

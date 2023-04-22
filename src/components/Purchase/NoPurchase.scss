@@ -19,6 +19,14 @@
         background-size: cover;
     }
 
+    span{
+        display: block;
+        text-align: center;
+        font-size: 1.3rem;
+        font-weight: 500;
+        color: black;
+    }
+
     .boton-inicio {
         display: inline-block;
         text-align: center;
@@ -34,7 +42,10 @@
 
     @media (min-width: 320px) and (max-width: 426px) {
         h3 {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
+        }
+        span {
+            font-size: 0.9rem;
         }
     }
 

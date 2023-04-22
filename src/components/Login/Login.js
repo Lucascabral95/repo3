@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useContext } from "react"
 import "./Login.scss"
 import { CartContext } from "../../Context/CartContext"
+import 'sweetalert2/dist/sweetalert2.min.css';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 const Login = () => {
 
@@ -23,8 +25,16 @@ const Login = () => {
             console.log("Usuario valido, podes ingresar")
             setAcceso(true)
         } else {
-            alert("Usuario invalido. Intentalo de nuevo")
             setAcceso(false)
+            Swal.fire({
+                title: '¡Fallido inicio de sesion!',
+                text: 'El email o la contraseña son incorrectos.',
+                icon: 'error',
+                imageUrl: "/img/pikachu-confundido.gif",
+                timer: 4000,
+                showConfirmButton: true,
+                allowOutsideClick: true,
+              });
         }
         return match
     }

@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react"
 import { CartContext } from "../../Context/CartContext"
 import NoPurchase from "./NoPurchase"
+import IdDeCompras from "./IdDeCompras"
 
 import "./ConfirmedPurchase.scss"
 
@@ -24,7 +25,7 @@ const PurchaseNumber = () => {
 
             ) : (
 
-                <NoPurchase /> 
+                <IdDeCompras />
 
             )}
         </>

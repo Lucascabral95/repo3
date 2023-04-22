@@ -3,7 +3,14 @@ body {
     background-repeat: repeat;
     background-attachment: fixed;
 
+    .card-body {
+        padding: 6px;
+        padding-top: 12px;
+    }
+
     .container {
+
+
         h1 {
             padding-top: 4%;
             color: blue;
@@ -24,13 +31,98 @@ body {
             }
 
         }
-        .icons{
+
+        .icons {
             position: absolute;
             top: 16px;
             right: 16px;
-            background-color: white ;
+            background-color: white;
             padding: 5px;
             border-radius: 50%;
         }
+
+
+        .contenedor-botones {
+            display: flex;
+            justify-content: space-between;
+
+            .btn {
+                max-height: 40px;
+            }
+
+            .div-estrella-favoritos {
+                // background-color: rgba(135, 207, 235, 0.76);
+                background-color: #58FAF4;
+                border-radius: 50%;
+
+                .estrella-favoritos {
+                    width: auto;
+                    height: 45px;
+                    padding: 0;
+                }
+
+                .estrella-favoritos:hover {
+                    // transition: 0.20s;
+                    background-color: pink;
+                    border-radius: 50%;
+                }
+
+                .estrella-favoritos:active {
+                    transition: 0.0.1s;
+                    background-color: black;
+                    border-radius: 20%;
+                }
+            }
+
+            .contenedor-fav-star {
+                display: flex;
+
+                .p-de-fav {
+                    img {
+                        width: 45px;
+                        height: auto;
+                    }
+
+                }
+            }
+
+        }
     }
 }
+
+// body {
+//     background-image: url("https://images.unsplash.com/photo-1605106715994-18d3fecffb98?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=663&q=80");
+//     background-repeat: repeat;
+//     background-attachment: fixed;
+
+//     .container {
+//         h1 {
+//             padding-top: 4%;
+//             color: blue;
+//             text-align: center;
+//             margin-bottom: 1%;
+//             font-weight: bolder;
+//             font-size: 3rem;
+//         }
+
+//         h1::selection {
+//             color: red;
+//             background-color: black;
+//         }
+
+//         .row {
+//             .card-img-top {
+//                 height: 290px;
+//             }
+
+//         }
+//         .icons{
+//             position: absolute;
+//             top: 16px;
+//             right: 16px;
+//             background-color: white ;
+//             padding: 5px;
+//             border-radius: 50%;
+//         }
+//     }
+// }

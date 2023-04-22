@@ -2,9 +2,28 @@
 
     .nav-item {
         display: flex;
+
+        @media (min-width: 991px) and (max-width: 1090px) {
+            .react-icon {
+                width: 40px;
+                height: auto;
+                position: relative;
+            }
+            span {
+                font-size: 1.5rem;
+                font-weight: bolder;
+            }
+            .second{
+                display: none;
+            }
+            .amigos-cart{
+                position: relative;
+                left: 76%;
+            }
+        }
     }
 
-    .div-icons{
+    .div-icons {
         margin: 10px;
     }
 
@@ -38,7 +57,7 @@
         color: red;
     }
 
-    .carrito-navbar:hover{
+    .carrito-navbar:hover {
         transition: 0.5s;
         color: red;
     }
@@ -47,5 +66,5 @@
         color: white;
     }
 
-    
+
 }

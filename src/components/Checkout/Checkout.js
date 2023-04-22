@@ -69,7 +69,6 @@ const Checkout = () => {
 
                 toast.success(`¡Compra exitosa! Anda a anotar tu id de compra 😃`)
             })
-
     }
 
 
@@ -78,9 +77,7 @@ const Checkout = () => {
         <div className="container">
 
             <h1 className="carrito-finalizacion">Checkout form</h1>
-
             <div className="row">
-
 
                 <form className="col-12 col-md-6" onSubmit={handleSubmit}>
 
@@ -111,20 +108,18 @@ const Checkout = () => {
                         onChange={handleInputChange}
                     />
 
-
                     {idDeCompra ? (
-                        <Link to="/purchase" className="btn btn-primary" type="submit">Ver numero de compra</Link>
+
+                        <Link to="/purchase" className="btn btn-primary" type="submit"> Ver numero de compra </Link>
 
                     ) : (
 
                         <button className="btn btn-success" type="submit">Enviar</button>
                     )}
 
-                <ToastContainer autoClose={5000} />
+                    <ToastContainer autoClose={5000} />
 
                 </form>
-
-
 
                 <div className="articulos-deseados col-12 col-md-5 rounded offset-md-1 mt-4 mt-lg-0">
                     <div className="checkout-detail">
@@ -149,21 +144,16 @@ const Checkout = () => {
                                         <p className="checkout-precio">${(item.contador * item.precio).toLocaleString().replace(",", ".")},00</p>
                                     </div>
                                 </div>
-
                             </div>
-
                         ))}
                         <div className="checkout-total">
                             <h2 className="mt-3">Total: ${(total).toLocaleString().replace(",", ".")},00</h2>
-                            {/* <h2 className="mt-3">Total: ${(total).toLocaleString()}</h2> */}
                         </div>
                     </div>
-
                 </div>
+
             </div>
         </div>
-
-
     )
 }
 

@@ -17,32 +17,30 @@ const CartWidget = () => {
     setAcceso(false)
   }
 
-
   return (
-    
+
     <ul className="navbar-nav">
       <li className="nav-item">
 
         <div className="div-icons">
           <Link to="/carrito">
-            <span className="carrito-contador">{quantity}</span>
+            <span className="carrito-contador amigos-cart">{quantity}</span>
             <IoIosCart size={36}
-              className="carrito-navbar"
+              className="carrito-navbar react-icon amigos-cart"
             />
           </Link>
         </div>
-
         <div className="div-icons">
-        <span className="carrito-contador">{wishCantidad}</span>
-          <Link to="/wishlist" className="wishlist-favoritos"> <AiFillHeart size={36} /> </Link>
+          <span className="carrito-contador second">{wishCantidad}</span>
+          <Link to="/wishlist" className="wishlist-favoritos"> <AiFillHeart size={36} className=" second" /> </Link>
         </div>
-
         <div className="div-icons">
-          <Link to={"/iddecompra"} className="button-buy"> <GiConfirmed size={36} style={{ color: "yellow" }} /> </Link>
+          <Link to={"/iddecompra"} className="button-buy"> <GiConfirmed className="second" size={36} style={{ color: "yellow" }} /> </Link>
         </div>
-
         <div className="div-icons">
-          <BiLogOut style={{ color: "yellow" }} size={36} onClick={handleLogout} className="wishlist-logout" />
+         <Link>
+          <BiLogOut style={{ color: "yellow" }} size={36} onClick={handleLogout} className="wishlist-logout react-icon" />
+         </Link>
         </div>
 
       </li>
