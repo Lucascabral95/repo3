@@ -16,7 +16,7 @@ const PurchaseNumber = () => {
 
                     <img className="img-pika-happy" src="/img/pikachu-happy-unscreen.gif" alt="Pikachu contento" />
                     <h3> ¡Compra realizada con exito! </h3>
-                    <span>Tu numero de compra es: </span>
+                    <span>Tu id de compra es: </span>
                     <span className="span-id-compra"> "{numeroCompra}" </span>
                     <img className="img-pokee" src="/img/pikachu-happy-poke.gif" alt="Pikachu contento" />
 
@@ -25,7 +25,6 @@ const PurchaseNumber = () => {
             ) : (
 
                 <NoPurchase /> 
-                // null
 
             )}
         </>

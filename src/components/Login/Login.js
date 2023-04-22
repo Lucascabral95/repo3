@@ -1,13 +1,10 @@
 import React, { useEffect, useState, useContext } from "react"
 import "./Login.scss"
-import { LoginContext } from "../../Context/LoginContext"
 import { CartContext } from "../../Context/CartContext"
 
 const Login = () => {
 
-    const { valueLogin, setValueLogin } = useContext(CartContext)
-
-    const [acceso, setAcceso] = useState(false)
+    const { valueLogin, setValueLogin, acceso, setAcceso } = useContext(CartContext)
 
 
     const handleChange = (e) => {
@@ -31,8 +28,6 @@ const Login = () => {
         }
         return match
     }
-
-
 
 
     const MOCK_USUARIOS = [
@@ -76,12 +71,6 @@ const Login = () => {
 
     return (
 
-        <>
-            { acceso ? (
-                <h1>Estas adentro</h1>
-            ) : (
-
-
                 <div className="contenedor-login">
 
                     <div className="container-fluid">
@@ -102,7 +91,6 @@ const Login = () => {
                                                     id="inputEmail"
                                                     placeholder="Direccion de Email"
                                                     value={valueLogin.email}
-                                                // required autofocus 
                                                 />
                                             </div>
                                             <div className="mb-3">
@@ -135,12 +123,6 @@ const Login = () => {
                     </div>
 
                 </div>
-
-
-
-            )}
-        </>
-
     )
 }
 

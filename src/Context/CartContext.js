@@ -3,22 +3,59 @@ import { createContext, useEffect, useState } from "react";
 export const CartContext = createContext()
 
 
-const productosLocalStorage = JSON.parse(localStorage.getItem('carrrito') || '[]')
-
-
-
-
 export const CartProvider = ({ children }) => {
 
-    const [cart, setCart] = useState([productosLocalStorage])
+    const [cart, setCart] = useState(
+        JSON.parse(localStorage.getItem('carrrito') || '[]')
+    )
 
-
-
-    useEffect(()=>{
+    useEffect(() => {
         localStorage.setItem('carrrito', JSON.stringify(cart))
-    },[cart])
+    }, [cart])
 
 
+    const [quantity, setQuantity] = useState(
+        JSON.parse(localStorage.getItem("quantity") || 0)
+    )
+
+    useEffect(() => {
+        localStorage.setItem("quantity", JSON.stringify(quantity))
+    }, [quantity])
+
+    //------------------------------------------------------------
+    const [wishProducto, setWishProducto] = useState(
+        JSON.parse(localStorage.getItem("wishlist") || 0)
+    )
+
+    useEffect(() => {
+        localStorage.setItem("wishlist", JSON.stringify(wishProducto))
+    }, [wishProducto])
+    //--------------------------------------------------------------------------------------
+    const [wishlist, setWishlist] = useState(
+        JSON.parse(localStorage.getItem('wishlist') || '{"items":[], "quantity":0}')
+    );
+
+    const [wishCantidad, setWishCantidad] = useState(
+        JSON.parse(localStorage.getItem('wishCantidad') || 0)
+    );
+
+    useEffect(() => {
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    }, [wishlist]);
+
+    useEffect(() => {
+        localStorage.setItem('wishCantidad', JSON.stringify(wishCantidad));
+    }, [wishCantidad]);
+
+    const addToWishlist = (product) => {
+        const updatedWishlist = {
+            items: [...wishlist.items, product],
+            quantity: wishlist.quantity + 1
+        };
+        setWishlist(updatedWishlist);
+        setWishCantidad(wishCantidad + 1);
+    };
+    //-----------------------------------------------------------------
 
     const isInCart = (id) => {
         return cart.some((prod) => prod.id === id)
@@ -31,7 +68,6 @@ export const CartProvider = ({ children }) => {
         return cart.reduce((acc, prod) => acc + prod.contador, 0)
     }
 
-    const [quantity, setQuantity] = useState(0)
 
 
     const [producto, setProducto] = useState(null);
@@ -52,23 +88,33 @@ export const CartProvider = ({ children }) => {
 
     const [wish, setWish] = useState(true)
 
-    const [wishProducto, setWishProducto] = useState([])
-
     const [idDeCompra, setIdDeCompra] = useState(false)
+    //---------------------------------------------------------------------
+    const [numeroCompra, setNumeroCompra] = useState(
+        JSON.parse(localStorage.getItem("numeroCompra") || "[]")
+    )
 
-    const [numeroCompra, setNumeroCompra] = useState("")
- 
+
+    useEffect(() => {
+        localStorage.setItem("numeroCompra", JSON.stringify(numeroCompra))
+    }, [numeroCompra])
+    //---------------------------------------------------------------------
 
 
-    const [valueLogin, setValueLogin] = useState({        
+    const [valueLogin, setValueLogin] = useState({
         email: "",
         contraseña: ""
     })
     //--------------------------------------------------------------------------------------
     const [wishlistOn, setWishlistOn] = useState(false)
-    const [wishCantidad, setWishCantidad] = useState(0)
-
     //--------------------------------------------------------------------------------------
+    const [acceso, setAcceso] = useState(
+        JSON.parse(localStorage.getItem("acceso") || false)
+    )
+
+    useEffect(() => {
+        localStorage.setItem("acceso", JSON.stringify(acceso))
+    }, [acceso])
 
     return (
         <CartContext.Provider value={{
@@ -106,7 +152,9 @@ export const CartProvider = ({ children }) => {
             numeroCompra,
             setNumeroCompra,
             wishCantidad,
-            setWishCantidad
+            setWishCantidad,
+            acceso,
+            setAcceso
         }}>
             {children}
 

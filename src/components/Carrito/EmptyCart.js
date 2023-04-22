@@ -3,7 +3,6 @@ import "./EmptyCart.scss"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { CartContext } from "../../Context/CartContext";
-// import { AiFillHeart } from "react-icons/ai"
 import Skeleton from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css'
 

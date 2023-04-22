@@ -12,15 +12,6 @@ function Videojuegos() {
   const { isLoading, setIsLoading, loadingSkeleton, setLoadingSkeleton } = useContext(CartContext)
 
 
-  // const q = query(collection(db, "productos-store"), where("categoria", "==", "Videojuego"));
-  // getDocs(q).then((querySnapshot) => {
-  //   const docs = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-  //   setData(docs);
-  //   setIsLoading(false);
-  // }).catch((error) => {
-  //   console.log("Error getting documents: ", error);
-  // });
-
   useEffect(() => {
     setLoadingSkeleton(true)
     setTimeout(() => {

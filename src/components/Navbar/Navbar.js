@@ -4,7 +4,6 @@ import CartWidget from "../CartWidget/CartWidget"
 import { Link } from "react-router-dom"
 
 
-
 export const NavBar = () => {
   return (
     <header>

@@ -1,7 +1,6 @@
 import "../Slide/Slide.scss"
 
 
-
 const Slide = () => {
 
     return (

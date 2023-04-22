@@ -1,12 +1,24 @@
 .navbar-nav {
 
-    .wishlist-favoritos{
-        text-decoration: none;
-        font-size: 28.8px;
-        color: yellow;
-        margin-right: 30px;
+    .nav-item {
+        display: flex;
     }
-    .wishlist-favoritos:hover{
+
+    .div-icons{
+        margin: 10px;
+    }
+
+    .button-buys:hover {
+        transition: 5s;
+        color: red;
+    }
+
+    .wishlist-favoritos {
+        text-decoration: none;
+        color: yellow;
+    }
+
+    .wishlist-favoritos:hover {
         color: red;
         transition: 0.5s;
     }
@@ -20,7 +32,20 @@
         color: red;
         font-size: 1.5rem;
     }
-    p{
+
+    .wishlist-logout:hover {
+        transition: 0.5s;
+        color: red;
+    }
+
+    .carrito-navbar:hover{
+        transition: 0.5s;
+        color: red;
+    }
+
+    p {
         color: white;
     }
+
+    
 }
