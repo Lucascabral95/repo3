@@ -1,13 +1,7 @@
-// import Skeleton from "react-loading-skeleton";
-//------------------------------------------------
-//------------------------------------------------
-//------------------------------------------------
-//------------------------------------------------
 import React, { useState, useEffect, useContext } from "react"
 import { Link } from "react-router-dom"
 import "./ItemListContainer.scss"
 import Slide from "../Slide/Slide"
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
 import SkeletonItemListContainer from "../Skeletons/SkeletonItemListContainer"
 import 'react-loading-skeleton/dist/skeleton.css'
 import { collection, doc, getDocs } from "firebase/firestore";
@@ -51,7 +45,9 @@ function Contador() {
 
   const handleWish = (producto) => {
 
-    const productoExistente = wishProducto.find(articulo => articulo.nombre === producto.nombre);
+    // const productoExistente = wishProducto.find(articulo => articulo.nombre === producto.nombre);
+    const productoExistente = Array.isArray(wishProducto) && wishProducto.find(articulo => articulo.nombre === producto.nombre);
+
 
     if (productoExistente) {
       const productoActualizado = { ...productoExistente, contador: productoExistente.contador + cantidad };

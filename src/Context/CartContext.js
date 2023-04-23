@@ -23,8 +23,11 @@ export const CartProvider = ({ children }) => {
     }, [quantity])
 
     //------------------------------------------------------------
+    // const [wishProducto, setWishProducto] = useState(
+    //     JSON.parse(localStorage.getItem("wishlist") || 0)
+    // )
     const [wishProducto, setWishProducto] = useState(
-        JSON.parse(localStorage.getItem("wishlist") || 0)
+        JSON.parse(localStorage.getItem("wishlist") || "[]")
     )
 
     useEffect(() => {
