@@ -11,13 +11,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-
-
 function Contador() {
   const { data, setData, loadingSkeleton, setLoadingSkeleton, cart, setCart, producto, setproducto, cantidad,
     setCantidad, contador, setContador, wish, setWish, wishProducto,
     setWishProducto, wishlistOn, setWishlistOn,
-    wishCantidad, setWishCantidad } = useContext(CartContext)
+    wishCantidad, setWishCantidad, userEmail } = useContext(CartContext)
 
 
   useEffect(() => {
@@ -45,9 +43,7 @@ function Contador() {
 
   const handleWish = (producto) => {
 
-    // const productoExistente = wishProducto.find(articulo => articulo.nombre === producto.nombre);
     const productoExistente = Array.isArray(wishProducto) && wishProducto.find(articulo => articulo.nombre === producto.nombre);
-
 
     if (productoExistente) {
       const productoActualizado = { ...productoExistente, contador: productoExistente.contador + cantidad };
@@ -89,12 +85,6 @@ function Contador() {
                       onMouseOver={() => setWish(true)}
                       onMouseOut={() => setWish(false)}
                     />
-                    {/* 
-                    {wish && (
-                      <div onMouseOver={() => setWish(true)} className="icons" onClick={() => handleWish(producto)}>
-                        {wish ? <AiOutlineHeart size={25} /> : <AiFillHeart size={25} />}
-                      </div>
-                    )} */}
                     <ToastContainer draggable={true} autoClose={3000} position="bottom-right" />
                   </div>
 

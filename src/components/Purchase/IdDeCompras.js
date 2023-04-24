@@ -11,7 +11,8 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 const IdDeCompras = () => {
 
-    const { numeroCompra, setNumeroCompra, loadingSkeleton, setLoadingSkeleton } = useContext(CartContext)
+    const { numeroCompra, setNumeroCompra, loadingSkeleton, setLoadingSkeleton,
+        userEmail } = useContext(CartContext)
 
     useEffect(() => {
         setLoadingSkeleton(true)
@@ -31,7 +32,7 @@ const IdDeCompras = () => {
             timer: 0,
             showConfirmButton: true,
             allowOutsideClick: true,
-          });
+        });
     }
 
 
@@ -62,6 +63,7 @@ const IdDeCompras = () => {
                         <div className="container contenedor-id">
                             <img src="/img/pikachu-nube.gif" alt="Pikachu sobre una nube" />
                             <h3>¡Aqui esta tu ultimo id de compras pasadas!</h3>
+                            <span>❤ Gracias por tu compra: <b>{userEmail}</b> ❤</span>
                             <span>Tu ultimo id de compra es: </span>
                             <span className="span-id-compra"> "{numeroCompra}" </span>
                             <span className="ultimo-id">¡Guardalo! </span>

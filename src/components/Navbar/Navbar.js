@@ -2,15 +2,20 @@ import pokemonLogo from "../../assets/img/pokemon-logo.png"
 import "./Navbar.scss"
 import CartWidget from "../CartWidget/CartWidget"
 import { Link } from "react-router-dom"
+import React, { useContext } from "react"
+import { CartContext } from "../../Context/CartContext"
 
 
 export const NavBar = () => {
+const { userEmail } = useContext(CartContext)
+
   return (
     <header>
 
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <Link to={"/"} className="navbar-brand" href="#home">
+            <img className="pokemon-logo-blanco-dos" src="/img/pikachu-sonriente.png" alt="Cara de Pikachu" />
             <img className="pokemon-logo" src={pokemonLogo} alt="Logo de Pokemon" />
             <img className="pokemon-logo-blanco" src="/img/pikachu-sonriente.png" alt="Cara de Pikachu" />
           </Link>

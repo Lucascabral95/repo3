@@ -23,9 +23,6 @@ export const CartProvider = ({ children }) => {
     }, [quantity])
 
     //------------------------------------------------------------
-    // const [wishProducto, setWishProducto] = useState(
-    //     JSON.parse(localStorage.getItem("wishlist") || 0)
-    // )
     const [wishProducto, setWishProducto] = useState(
         JSON.parse(localStorage.getItem("wishlist") || "[]")
     )
@@ -70,8 +67,6 @@ export const CartProvider = ({ children }) => {
     const totalCantidad = () => {
         return cart.reduce((acc, prod) => acc + prod.contador, 0)
     }
-
-
 
     const [producto, setProducto] = useState(null);
 
@@ -118,7 +113,16 @@ export const CartProvider = ({ children }) => {
     useEffect(() => {
         localStorage.setItem("acceso", JSON.stringify(acceso))
     }, [acceso])
+    //---------------------------------------------------------
+    const [ userEmail, setUserEmail ] = useState(
+        JSON.parse(localStorage.getItem("userEmail") || "[]")
+    )
 
+    useEffect(() => {
+        localStorage.setItem("userEmail", JSON.stringify(userEmail))
+    },[userEmail])
+
+    
     return (
         <CartContext.Provider value={{
             cart,
@@ -157,7 +161,9 @@ export const CartProvider = ({ children }) => {
             wishCantidad,
             setWishCantidad,
             acceso,
-            setAcceso
+            setAcceso,
+            userEmail,
+            setUserEmail
         }}>
             {children}
 

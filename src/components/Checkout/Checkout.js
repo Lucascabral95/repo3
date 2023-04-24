@@ -20,14 +20,12 @@ const Checkout = () => {
         direccion: ""
     })
 
-
     const handleInputChange = (e) => {
         setValue({
             ...value,
             [e.target.name]: e.target.value
         })
     }
-
 
 
     const handleSubmit = async (event) => {
@@ -110,7 +108,12 @@ const Checkout = () => {
 
                     {idDeCompra ? (
 
-                        <Link to="/purchase" className="btn btn-primary" type="submit"> Ver numero de compra </Link>
+                        <>
+                           <img className="finger-checkout-d" src="/img/icon-derecha.gif" alt="Dedo señalador" />
+                            <Link to="/purchase" className="btn btn-primary" type="submit"> Ver numero de compra </Link>
+                           <img className="finger-checkout-i" src="/img/icon-izquierda.gif" alt="Dedo señalador" />
+
+                        </>
 
                     ) : (
 
@@ -156,7 +159,5 @@ const Checkout = () => {
         </div>
     )
 }
-
-
 
 export default Checkout

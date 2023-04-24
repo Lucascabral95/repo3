@@ -1,5 +1,3 @@
-// import Instagram from "../../assets/img/social.png"
-// import Skeleton from "react-loading-skeleton"
 import "./Footer.scss"
 import { useContext, useEffect } from "react"
 import { CartContext } from "../../Context/CartContext"

@@ -9,19 +9,19 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 const Emptycart = () => {
 
-    const [loadingToast, setLoadingToast ] = useState(false)
+    const [loadingToast, setLoadingToast] = useState(false)
 
-   const { loadingSkeleton, setLoadingSkeleton } = useContext(CartContext)
+    const { loadingSkeleton, setLoadingSkeleton } = useContext(CartContext)
 
 
-useEffect(() => {
-    setLoadingSkeleton(true)
-    setTimeout(() => {
-        
-        setLoadingSkeleton(false)
+    useEffect(() => {
+        setLoadingSkeleton(true)
+        setTimeout(() => {
 
-    }, 300);
-},[])
+            setLoadingSkeleton(false)
+
+        }, 300);
+    }, [])
 
 
     const handleEmpty = () => {

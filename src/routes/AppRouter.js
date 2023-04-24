@@ -8,7 +8,6 @@ const AppRouter = () => {
 
     const { acceso, setAcceso } = useContext(CartContext)
 
-
     return (
         <>
             <BrowserRouter>

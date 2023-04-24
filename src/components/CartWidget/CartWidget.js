@@ -6,7 +6,8 @@ import { CartContext } from "../../Context/CartContext"
 import { AiFillHeart } from "react-icons/ai"
 import { BiLogOut } from "react-icons/bi"
 import { GiConfirmed } from "react-icons/gi"
-
+import { getAuth, signOut, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../Firebase/config"
 
 
 const CartWidget = () => {
@@ -14,7 +15,10 @@ const CartWidget = () => {
     wishCantidad, setWishCantidad, acceso, setAcceso } = useContext(CartContext)
 
   const handleLogout = () => {
-    setAcceso(false)
+    signOut(auth)
+    .then(() => {
+      setAcceso(false)
+    })
   }
 
   return (
@@ -38,9 +42,9 @@ const CartWidget = () => {
           <Link to={"/iddecompra"} className="button-buy"> <GiConfirmed className="second" size={36} style={{ color: "yellow" }} /> </Link>
         </div>
         <div className="div-icons">
-         <Link>
-          <BiLogOut style={{ color: "yellow" }} size={36} onClick={handleLogout} className="wishlist-logout react-icon" />
-         </Link>
+          <Link>
+            <BiLogOut style={{ color: "yellow" }} size={36} onClick={handleLogout} className="wishlist-logout react-icon" />
+          </Link>
         </div>
 
       </li>

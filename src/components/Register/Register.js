@@ -1,60 +1,38 @@
-import React, { useEffect, useState, useContext } from "react"
-import "./Login.scss"
-import { CartContext } from "../../Context/CartContext"
-import 'sweetalert2/dist/sweetalert2.min.css';
+import React, { useState, useContext } from "react";
+import "./Register.scss"
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { CartContext } from "../../Context/CartContext";
 import Swal from 'sweetalert2/dist/sweetalert2.js';
+import 'sweetalert2/dist/sweetalert2.min.css';
 import { Link } from "react-router-dom"
-import { getAuth, signOut, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-import { auth } from "../../Firebase/config"
 
-const Login = () => {
-
-    const { valueLogin, setValueLogin, acceso, setAcceso, userEmail, setUserEmail } = useContext(CartContext)
+const Register = () => {
+    const { valueLogin, setValueLogin, acceso, setAcceso } = useContext(CartContext);
 
     const handleChange = (e) => {
         setValueLogin({
             ...valueLogin,
             [e.target.name]: e.target.value
-        })
+        });
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-
+        e.preventDefault();
         const auth = getAuth();
-        signInWithEmailAndPassword(auth, valueLogin.email, valueLogin.contraseña)
+        createUserWithEmailAndPassword(auth, valueLogin.email, valueLogin.contraseña)
             .catch((error) => {
+                const errorCode = error.code;
                 const errorMessage = error.message;
-                console.log("Error en inicio de sesión:", errorMessage)
+                console.error("Error creating user:", errorCode, errorMessage);
                 Swal.fire({
+                    title: "¡Error!",
+                    text: "El email ingresado ya esta en uso.",
                     icon: "error",
-                    title: "¡Fallido inicio de sesion",
-                    text: "El email o la contraseña son incorrectos.",
-                    imageUrl: "/img/pikachu-confundido.gif",
-                    timer: 4000,
-                    showConfirmButton: true,
-                    allowOutsideClick: true,
-                })
+                    confirmButtonText: "Ok",
+                    imageUrl: "/img/pikachu-electro.gif"
+                });
             });
-    }
-
-    useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
-            console.log(user)
-            if (user) {
-                setAcceso({
-                    email: user.email,
-                    acceso: true
-                })
-                console.log("Bienvenido: " + user.email)
-                setUserEmail(user.email)
-            } else {
-                setAcceso(false)
-            }
-            console.log(user)
-        })
-    }, [])
-
+    };
 
 
     return (
@@ -65,7 +43,7 @@ const Login = () => {
                         <div className="card shadow-sm">
                             <div className="card-body">
                                 <img className="mx-auto d-block mb-4" src="/img/pokemon-logo.png" alt="Pokemon Store" width="auto" height="72" />
-                                <h2 className="text-center mb-4">Ingresa con tu cuenta</h2>
+                                <h2 className="text-center mb-4">Registrarme</h2>
                                 <form onSubmit={handleSubmit} className="form-login">
                                     <div className="mb-3">
                                         <label htmlFor="input" className="form-label visually-hidden">Direccion de Email</label>
@@ -97,17 +75,16 @@ const Login = () => {
                                             <label className="form-check-label" htmlFor="rememberMe">Recordame</label>
                                         </div>
                                     </div>
-                                    <button className="w-100 btn btn-lg btn-primary mb-2" type="submit">Ingresar</button>
-                                    <Link to={"/register"}> ¿No tenes una cuenta? Regístrate ahora. </Link>
+                                    <button className="w-100 btn btn-lg btn-primary mb-2" type="submit">Registrarme</button>
+                                    <Link to={"/login"}> Ya estoy registrado </Link>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     )
 }
 
-export default Login
+export default Register
