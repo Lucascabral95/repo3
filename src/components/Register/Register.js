@@ -1,13 +1,15 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import "./Register.scss"
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { CartContext } from "../../Context/CartContext";
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import 'sweetalert2/dist/sweetalert2.min.css';
 import { Link } from "react-router-dom"
+import { LoginContext } from "../../Context/LoginContext";
+
 
 const Register = () => {
-    const { valueLogin, setValueLogin, acceso, setAcceso } = useContext(CartContext);
+
+    const { valueLogin, setValueLogin } = useContext(LoginContext);
 
     const handleChange = (e) => {
         setValueLogin({

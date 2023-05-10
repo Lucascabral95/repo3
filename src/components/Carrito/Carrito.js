@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react"
+import React, { useEffect, useContext } from "react"
 import { CartContext } from "../../Context/CartContext"
 import "./Carrito.scss"
 import { Link } from "react-router-dom"
@@ -9,8 +9,9 @@ import SkeletonCarrito from "../Skeletons/SkeletonCarrito"
 
 
 const Carrito = () => {
-  const { cart, setCart, contador, setContador, quantity, setQuantity, total, setTotal, cantidad, setCantidad,
-    producto, setProduct, isLoading, setIsLoading, loadingSkeleton, setLoadingSkeleton } = useContext(CartContext);
+  const { cart, setCart, contador, setContador,
+    quantity, setQuantity, total, setTotal, setCantidad,
+    loadingSkeleton, setLoadingSkeleton } = useContext(CartContext);
 
 
   const vaciarCarrito = () => {

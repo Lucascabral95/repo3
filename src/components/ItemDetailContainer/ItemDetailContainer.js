@@ -11,15 +11,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const ProductoId = () => {
-    const { id } = useParams();
-
-    const { cart, setCart, producto, setProducto, cantidad, setCantidad } = useContext(CartContext);
-
+    const { cart, setCart, producto, setProducto, cantidad, setCantidad, quantity, setQuantity } = useContext(CartContext);
     const [seguirComprando, setSeguirComprando] = useState(false)
-
-
     const [loading, setLoading] = useState(true);
 
+    const { id } = useParams();
 
     useEffect(() => {
         const productoRef = doc(db, "productos-store", id);
@@ -44,7 +40,7 @@ const ProductoId = () => {
             setCantidad(cantidad - 1)
         }
     };
-
+    
     const handleSumar = () => {
         if (cantidad < producto.stock) {
             setCantidad(cantidad + 1);
@@ -53,7 +49,6 @@ const ProductoId = () => {
 
     const handleAgregar = () => {
         const productoExistente = cart.find(item => item.nombre === producto.nombre);
-
         if (productoExistente) {
             const productoActualizado = { ...productoExistente, contador: productoExistente.contador + cantidad };
             setCart(cart.map(item => (item.nombre === producto.nombre ? productoActualizado : item)));
@@ -69,6 +64,7 @@ const ProductoId = () => {
 
         setCantidad(1)
         setSeguirComprando(true)
+        setQuantity(quantity + cantidad);
     };
 
 
@@ -100,7 +96,7 @@ const ProductoId = () => {
                                     style={{ width: "60px", textAlign: "center" }}
                                     value={cantidad}
                                     onChange={(event) => setCantidad(Number(event.target.value))}
-                                    readOnly  
+                                    readOnly
                                     min="1"
                                     max={producto.stock}
                                 />
@@ -109,7 +105,7 @@ const ProductoId = () => {
                                 </button>
                             </>
                         ) : (
-                            <Link to={"/"} className="btn btn-danger"> Seguir Comprando </Link>
+                            <Link to={"/"} className="btn btn-danger"> Seguir comprando </Link>
                         )}
                     </div>
 
@@ -124,7 +120,11 @@ const ProductoId = () => {
                             </Link>
                         )}
                     </>
-                    <ToastContainer autoClose={1500} draggable={true} />
+                    <ToastContainer 
+                    autoClose={1500} 
+                    draggable={true} 
+                    position="bottom-right"
+                    />
 
                 </div>
             </div>

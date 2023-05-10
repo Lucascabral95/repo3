@@ -1,23 +1,22 @@
 import "./WishList.scss"
-import React, { useEffect, useState, useContext } from "react"
+import React, { useEffect, useContext } from "react"
 import { CartContext } from "../../Context/CartContext";
 import Wishlistempty from "./WishListEmpty";
-import { Link, useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-
 import SkeletonWishList from "../Skeletons/SkeletonWishList"
+import { WishListContext } from "../../Context/WishListContext"
 
 
 const Wishlist = () => {
-    const { wishProducto, setWishProducto, cart, setCart, producto,
-        setProducto, quantity, setQuantity, wishlistOn, setWishlistOn,
-        wishCantidad, setWishCantidad,
-        loadingSkeleton, setLoadingSkeleton } = useContext(CartContext)
+
+    const { loadingSkeleton, setLoadingSkeleton } = useContext(CartContext)
+    const { wishProducto, setWishProducto, wishCantidad, setWishCantidad } = useContext(WishListContext)
 
 
     const eliminarArticulo = (index) => {

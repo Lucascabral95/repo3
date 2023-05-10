@@ -1,14 +1,12 @@
 import Skeleton from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css'
 import { CartContext } from "../../Context/CartContext";
-import React, { useState, useEffect, useContext } from "react"
-
+import React, { useContext } from "react"
 
 
 const SleletonCarrito = () => {
 
-    const { cart, setCart, contador, setContador, quantity, setQuantity, total, setTotal, cantidad, setCantidad,
-        producto, setProduct, isLoading, setIsLoading } = useContext(CartContext);
+    const { cart, quantity } = useContext(CartContext);
 
 
     return (

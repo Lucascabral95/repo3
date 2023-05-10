@@ -1,5 +1,5 @@
 import "./IdDeCompras.scss"
-import { useEffect, useState, useContext } from "react"
+import { useEffect, useContext } from "react"
 import { Link } from "react-router-dom"
 import { CartContext } from "../../Context/CartContext"
 import Skeleton from "react-loading-skeleton";

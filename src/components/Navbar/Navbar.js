@@ -3,11 +3,9 @@ import "./Navbar.scss"
 import CartWidget from "../CartWidget/CartWidget"
 import { Link } from "react-router-dom"
 import React, { useContext } from "react"
-import { CartContext } from "../../Context/CartContext"
 
 
 export const NavBar = () => {
-const { userEmail } = useContext(CartContext)
 
   return (
     <header>

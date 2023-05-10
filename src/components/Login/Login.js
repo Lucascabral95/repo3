@@ -1,15 +1,15 @@
-import React, { useEffect, useState, useContext } from "react"
+import React, { useEffect, useContext } from "react"
 import "./Login.scss"
-import { CartContext } from "../../Context/CartContext"
 import 'sweetalert2/dist/sweetalert2.min.css';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { Link } from "react-router-dom"
-import { getAuth, signOut, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../Firebase/config"
+import { LoginContext } from "../../Context/LoginContext";
 
 const Login = () => {
 
-    const { valueLogin, setValueLogin, acceso, setAcceso, userEmail, setUserEmail } = useContext(CartContext)
+    const { valueLogin, setValueLogin, setAcceso, setUserEmail } = useContext(LoginContext)
 
     const handleChange = (e) => {
         setValueLogin({
@@ -54,7 +54,6 @@ const Login = () => {
             console.log(user)
         })
     }, [])
-
 
 
     return (

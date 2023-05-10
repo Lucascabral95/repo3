@@ -2,10 +2,8 @@ import "./Footer.scss"
 import { useContext, useEffect } from "react"
 import { CartContext } from "../../Context/CartContext"
 
-
 const Footer = () => {
-const { isLoading, setIsLoading } = useContext(CartContext) 
-
+const { setIsLoading } = useContext(CartContext) 
 
 useEffect(() => {
     setTimeout(() => {

@@ -1,18 +1,15 @@
-import { useEffect, useState, useContext } from "react"
+import { useState, useContext } from "react"
 import "./Checkout.scss"
 import { CartContext } from "../../Context/CartContext"
 import { db } from "../../Firebase/config"
 import { Link } from "react-router-dom"
-import { writeBatch, collection, where, documentId, updateDoc, doc, getDocs, addDoc, query } from "firebase/firestore"
+import { collection, doc, addDoc } from "firebase/firestore"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
 const Checkout = () => {
-    const { cart, setCart, contador, setContador,
-        quantity, setQuantity, total, setTotal, vaciarCarrito, precioSumado,
-        totalSuma, setTotalSuma, idDeCompra, setIdDeCompra,
-        numeroCompra, setNumeroCompra } = useContext(CartContext);
+    const { cart, quantity, total, idDeCompra, setIdDeCompra, setNumeroCompra } = useContext(CartContext);
 
     const [value, setValue] = useState({
         nombre: "",

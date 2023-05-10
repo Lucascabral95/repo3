@@ -1,12 +1,13 @@
 import { BrowserRouter } from 'react-router-dom';
 import PublicRoutes from "./PublicRoutes"
 import PrivateRoutes from "./PrivateRoutes"
-import { CartContext } from '../Context/CartContext';
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext } from "react"
+import { LoginContext } from "../Context/LoginContext";
+
 
 const AppRouter = () => {
 
-    const { acceso, setAcceso } = useContext(CartContext)
+    const { acceso } = useContext(LoginContext)
 
     return (
         <>

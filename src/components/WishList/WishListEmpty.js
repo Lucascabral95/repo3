@@ -1,5 +1,5 @@
 import "./WishListEmpty.scss"
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useEffect } from "react"
 import { CartContext } from "../../Context/CartContext"
 import Skeleton from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css'

@@ -8,7 +8,6 @@ import CarritoCompras from "../components/Carrito/Carrito"
 import Checkout from "../components/Checkout/Checkout"
 import Emptycart from "../components/Carrito/EmptyCart"
 import ConfirmedPurchase from "../components/Purchase/ConfirmedPurchase"
-
 import IdDeCompras from "../components/Purchase/IdDeCompras"
 
 const PrivateRoutes = () => {
@@ -34,7 +33,7 @@ const PrivateRoutes = () => {
             <Footer />
         </>
 
-)
+    )
 }
 
 export default PrivateRoutes 

@@ -1,24 +1,28 @@
 import { IoIosCart } from "react-icons/io";
 import "./CartWidget.scss";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom"
-import { CartContext } from "../../Context/CartContext"
 import { AiFillHeart } from "react-icons/ai"
 import { BiLogOut } from "react-icons/bi"
 import { GiConfirmed } from "react-icons/gi"
-import { getAuth, signOut, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import { auth } from "../../Firebase/config"
+import { CartContext } from "../../Context/CartContext"
+import { WishListContext } from "../../Context/WishListContext"
+import { LoginContext } from "../../Context/LoginContext";
 
 
 const CartWidget = () => {
-  const { contador, setContador, totalCantidad, quantity, setQuantity,
-    wishCantidad, setWishCantidad, acceso, setAcceso } = useContext(CartContext)
+
+  const { quantity } = useContext(CartContext)
+  const { setAcceso } = useContext(LoginContext)
+  const { wishCantidad } = useContext(WishListContext)
 
   const handleLogout = () => {
     signOut(auth)
-    .then(() => {
-      setAcceso(false)
-    })
+      .then(() => {
+        setAcceso(false)
+      })
   }
 
   return (

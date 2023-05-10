@@ -1,13 +1,12 @@
-import { useEffect, useState, useContext } from "react"
+import { useContext } from "react"
 import { CartContext } from "../../Context/CartContext"
-import NoPurchase from "./NoPurchase"
 import IdDeCompras from "./IdDeCompras"
 
 import "./ConfirmedPurchase.scss"
 
 const PurchaseNumber = () => {
 
-    const { idDeCompra, setIdDeCompra, numeroCompra, setNumeroCompra } = useContext(CartContext)
+    const { idDeCompra, numeroCompra } = useContext(CartContext)
 
     return (
         <>

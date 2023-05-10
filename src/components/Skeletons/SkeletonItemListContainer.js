@@ -2,12 +2,11 @@ import Skeleton from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css'
 import Slide from "../Slide/Slide"
 import { CartContext } from "../../Context/CartContext";
-import React, { useState, useEffect, useContext } from "react"
-
+import React, { useContext } from "react"
 
 
 const SkeletonItemListContainer = () => {
-    const { data, setData } = useContext(CartContext)
+    const { data } = useContext(CartContext)
 
     return (
         <>

@@ -2,7 +2,6 @@ import { createContext, useEffect, useState } from "react";
 
 export const CartContext = createContext()
 
-
 export const CartProvider = ({ children }) => {
 
     const [cart, setCart] = useState(
@@ -22,47 +21,11 @@ export const CartProvider = ({ children }) => {
         localStorage.setItem("quantity", JSON.stringify(quantity))
     }, [quantity])
 
-    //------------------------------------------------------------
-    const [wishProducto, setWishProducto] = useState(
-        JSON.parse(localStorage.getItem("wishlist") || "[]")
-    )
-
-    useEffect(() => {
-        localStorage.setItem("wishlist", JSON.stringify(wishProducto))
-    }, [wishProducto])
-    //--------------------------------------------------------------------------------------
-    const [wishlist, setWishlist] = useState(
-        JSON.parse(localStorage.getItem('wishlist') || '{"items":[], "quantity":0}')
-    );
-
-    const [wishCantidad, setWishCantidad] = useState(
-        JSON.parse(localStorage.getItem('wishCantidad') || 0)
-    );
-
-    useEffect(() => {
-        localStorage.setItem('wishlist', JSON.stringify(wishlist));
-    }, [wishlist]);
-
-    useEffect(() => {
-        localStorage.setItem('wishCantidad', JSON.stringify(wishCantidad));
-    }, [wishCantidad]);
-
-    const addToWishlist = (product) => {
-        const updatedWishlist = {
-            items: [...wishlist.items, product],
-            quantity: wishlist.quantity + 1
-        };
-        setWishlist(updatedWishlist);
-        setWishCantidad(wishCantidad + 1);
-    };
-    //-----------------------------------------------------------------
-
     const isInCart = (id) => {
         return cart.some((prod) => prod.id === id)
     }
 
     const [contador, setContador] = useState(0)
-
 
     const totalCantidad = () => {
         return cart.reduce((acc, prod) => acc + prod.contador, 0)
@@ -84,45 +47,17 @@ export const CartProvider = ({ children }) => {
 
     const [loadingSkeleton, setLoadingSkeleton] = useState(true)
 
-    const [wish, setWish] = useState(true)
-
+    
     const [idDeCompra, setIdDeCompra] = useState(false)
     //---------------------------------------------------------------------
     const [numeroCompra, setNumeroCompra] = useState(
         JSON.parse(localStorage.getItem("numeroCompra") || "[]")
-    )
-
-
+        )
+        
+        
     useEffect(() => {
         localStorage.setItem("numeroCompra", JSON.stringify(numeroCompra))
     }, [numeroCompra])
-    //---------------------------------------------------------------------
-
-
-    const [valueLogin, setValueLogin] = useState({
-        email: "",
-        contraseña: ""
-    })
-    //--------------------------------------------------------------------------------------
-    const [wishlistOn, setWishlistOn] = useState(false)
-    //--------------------------------------------------------------------------------------
-    const [acceso, setAcceso] = useState(
-        JSON.parse(localStorage.getItem("acceso") || false)
-    )
-
-    useEffect(() => {
-        localStorage.setItem("acceso", JSON.stringify(acceso))
-    }, [acceso])
-    //---------------------------------------------------------
-    const [ userEmail, setUserEmail ] = useState(
-        JSON.parse(localStorage.getItem("userEmail") || "[]")
-    )
-
-    useEffect(() => {
-        localStorage.setItem("userEmail", JSON.stringify(userEmail))
-    },[userEmail])
-
-
     
     return (
         <CartContext.Provider value={{
@@ -147,27 +82,14 @@ export const CartProvider = ({ children }) => {
             setIsLoading,
             loadingSkeleton,
             setLoadingSkeleton,
-            wish,
-            setWish,
-            wishProducto,
-            setWishProducto,
-            valueLogin,
-            setValueLogin,
-            wishlistOn,
-            setWishlistOn,
             idDeCompra,
             setIdDeCompra,
             numeroCompra,
-            setNumeroCompra,
-            wishCantidad,
-            setWishCantidad,
-            acceso,
-            setAcceso,
-            userEmail,
-            setUserEmail
+            setNumeroCompra
         }}>
             {children}
 
         </CartContext.Provider>
     )
 }
+
