@@ -11,8 +11,8 @@ import 'react-toastify/dist/ReactToastify.css';
 function Peliculas() {
   const [data, setData] = useState([]);
 
-  const { isLoading, setIsLoading, loadingSkeleton, setLoadingSkeleton,
-    wish, setWish, wishlistOn, setWishlistOn, wishProducto, setWishProducto,
+  const { setIsLoading, loadingSkeleton, setLoadingSkeleton,
+    setWish, setWishlistOn, wishProducto, setWishProducto,
     cantidad, setWishCantidad, wishCantidad } = useContext(CartContext)
 
 
@@ -50,7 +50,6 @@ function Peliculas() {
 
 
   return (
-
     <>
 
       {loadingSkeleton ? (

@@ -28,13 +28,13 @@ const { userEmail } = useContext(CartContext)
                 <Link to={"/"} className="nav-link" href="#features">Inicio</Link>
               </li>
               <li className="nav-item">
-                <Link to={"/productos/peliculas"} className="nav-link" href="#pricing">Peliculas</Link>
+                <Link to={"/productos/pelicula"} className="nav-link" href="#pricing">Peliculas</Link>
               </li>
               <li className="nav-item">
-                <Link to={"/productos/peluches"} className="nav-link" href="#pricing">Peluches</Link>
+                <Link to={"/productos/peluche"} className="nav-link" href="#pricing">Peluches</Link>
               </li>
               <li className="nav-item">
-                <Link to={"/productos/videojuegos"} className="nav-link" href="#pricing">Videojuegos</Link>
+                <Link to={"/productos/videojuego"} className="nav-link" href="#pricing">Videojuegos</Link>
               </li>
             </ul>
             <CartWidget />

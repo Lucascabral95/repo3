@@ -122,6 +122,7 @@ export const CartProvider = ({ children }) => {
         localStorage.setItem("userEmail", JSON.stringify(userEmail))
     },[userEmail])
 
+
     
     return (
         <CartContext.Provider value={{

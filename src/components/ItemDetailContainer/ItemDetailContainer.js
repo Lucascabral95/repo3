@@ -13,8 +13,10 @@ import 'react-toastify/dist/ReactToastify.css';
 const ProductoId = () => {
     const { id } = useParams();
 
-    const { cart, setCart, isInCart, producto, setProducto, data, setData, loadingSkeleton, setLoadingSkeleton,
-        cantidad, setCantidad, quantity, setQuantity } = useContext(CartContext);
+    const { cart, setCart, producto, setProducto, cantidad, setCantidad } = useContext(CartContext);
+
+    const [seguirComprando, setSeguirComprando] = useState(false)
+
 
     const [loading, setLoading] = useState(true);
 
@@ -32,11 +34,10 @@ const ProductoId = () => {
             .finally(() => {
                 setLoading(false);
             });
-    }, [id]);
-
+        setCantidad(1)
+    }, [id, setCantidad, setCantidad]);
 
     console.log(cart)
-
 
     const handleRestar = () => {
         if (cantidad > 1) {
@@ -49,7 +50,6 @@ const ProductoId = () => {
             setCantidad(cantidad + 1);
         }
     };
-
 
     const handleAgregar = () => {
         const productoExistente = cart.find(item => item.nombre === producto.nombre);
@@ -66,6 +66,9 @@ const ProductoId = () => {
         ) : (
             (`¡Usted agrego exitosamente ${cantidad} articulos al carrito!`)
         ))
+
+        setCantidad(1)
+        setSeguirComprando(true)
     };
 
 
@@ -75,7 +78,6 @@ const ProductoId = () => {
 
 
     return (
-
         <div className="container">
             <div className="row">
                 <div className="col-md-6">
@@ -87,35 +89,46 @@ const ProductoId = () => {
                     <p className="producto-categoria">Categoría: {producto.categoria}</p>
 
                     <div className="cantidad">
-                        <button className="btn btn-cantidad" onClick={handleRestar} >
-                            -
-                        </button>
-
-                        <input
-                            type="number"
-                            className="form-control d-inline-block"
-                            style={{ width: "60px", textAlign: "center" }}
-                            value={cantidad}
-                            onChange={(event) => setCantidad(Number(event.target.value))}
-                            min="1"
-                            max={producto.stock}
-                        />
-                        <button className="btn btn-cantidad" onClick={handleSumar}>
-                            +
-                        </button>
+                        {!seguirComprando ? (
+                            <>
+                                <button className="btn btn-cantidad" onClick={handleRestar} >
+                                    -
+                                </button>
+                                <input
+                                    type="number"
+                                    className="form-control d-inline-block"
+                                    style={{ width: "60px", textAlign: "center" }}
+                                    value={cantidad}
+                                    onChange={(event) => setCantidad(Number(event.target.value))}
+                                    readOnly  
+                                    min="1"
+                                    max={producto.stock}
+                                />
+                                <button className="btn btn-cantidad" onClick={handleSumar}>
+                                    +
+                                </button>
+                            </>
+                        ) : (
+                            <Link to={"/"} className="btn btn-danger"> Seguir Comprando </Link>
+                        )}
                     </div>
-                    <button className="btn btn-success" onClick={handleAgregar}>
-                        Agregar al Carrito
-                    </button>
+
+                    <>
+                        {!seguirComprando ? (
+                            <button className="btn btn-primary" onClick={handleAgregar}>
+                                Agregar al carrito
+                            </button>
+                        ) : (
+                            <Link to="/carrito" className="btn btn-warning" onClick={() => setCantidad(1)}>
+                                Terminar compra
+                            </Link>
+                        )}
+                    </>
                     <ToastContainer autoClose={1500} draggable={true} />
-                    <Link to="/carrito" className="btn btn-warning" onClick={() => setCantidad(1)}>
-                        Terminar compra
-                    </Link>
 
                 </div>
             </div>
         </div>
-
     );
 }
 

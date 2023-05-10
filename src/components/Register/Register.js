@@ -26,7 +26,7 @@ const Register = () => {
                 console.error("Error creating user:", errorCode, errorMessage);
                 Swal.fire({
                     title: "¡Error!",
-                    text: "El email ingresado ya esta en uso.",
+                    text: "El email ingresado ya esta en uso. O esta ingresando mismos pares email/contraseña ¡Intentalo de nuevo!",
                     icon: "error",
                     confirmButtonText: "Ok",
                     imageUrl: "/img/pikachu-electro.gif"
