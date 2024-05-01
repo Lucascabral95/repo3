@@ -10,7 +10,6 @@ const SkeletonCategory = () => {
     return (
         <>
 
-
             <div className="container">
                 <h1>Lista de Peliculas</h1>
 
@@ -31,7 +30,6 @@ const SkeletonCategory = () => {
                     )}
                 </div>
             </div>
-
 
         </>
     )

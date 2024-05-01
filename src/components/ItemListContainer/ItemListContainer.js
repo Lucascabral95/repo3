@@ -17,7 +17,7 @@ function Contador() {
 
   const { data, setData, loadingSkeleton, setLoadingSkeleton, cantidad } = useContext(CartContext)
 
-  const { setWish, wishProducto, setWishProducto, 
+  const { setWish, wishProducto, setWishProducto,
     setWishlistOn, wishCantidad, setWishCantidad } = useContext(WishListContext)
 
   useEffect(() => {

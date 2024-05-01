@@ -7,12 +7,10 @@ import { FcFullTrash } from "react-icons/fc";
 import Emptycart from "./EmptyCart";
 import SkeletonCarrito from "../Skeletons/SkeletonCarrito"
 
-
 const Carrito = () => {
   const { cart, setCart, contador, setContador,
     quantity, setQuantity, total, setTotal, setCantidad,
     loadingSkeleton, setLoadingSkeleton } = useContext(CartContext);
-
 
   const vaciarCarrito = () => {
     setCart([]);

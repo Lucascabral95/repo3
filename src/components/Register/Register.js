@@ -36,7 +36,6 @@ const Register = () => {
             });
     };
 
-
     return (
         <div className="contenedor-login">
             <div className="container-fluid">
@@ -58,6 +57,7 @@ const Register = () => {
                                             placeholder="Direccion de Email"
                                             value={valueLogin.email}
                                         />
+                                        <p style={{ color: "gray", fontSize: "12px", margin:"0 0 0 4px" }}> *El email debe terminar en @hotmail.com*</p>
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="input" className="form-label visually-hidden">Contraseña</label>
@@ -70,6 +70,7 @@ const Register = () => {
                                             placeholder="Contraseña"
                                             value={valueLogin.contraseña}
                                             required />
+                                            <p style={{ color: "gray", fontSize: "12px", margin:"0 0 0 4px" }}> *Mínimo 6 caracteres*</p>
                                     </div>
                                     <div className="mb-3">
                                         <div className="form-check">
