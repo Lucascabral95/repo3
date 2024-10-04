@@ -67,6 +67,18 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# repo2
-# repo3
+
+# Proyecto Final de React JS de Coderhouse
+
+Desarrollo de una plataforma de e-commerce para la venta de artículos de Pokémon, como parte del proyecto final del curso de React de CoderHouse.
+
+Características Principales:
+- **Carga de Productos**: Integración de Firebase para la carga de productos, con la capacidad de filtrar artículos según su categoría, mejorando la navegabilidad del catálogo.
+- **Checkout de Compra**: Desarrollo de un proceso de checkout eficiente que permite a los usuarios finalizar su compra de manera segura y rápida.
+- **Emisión de Ticket de Compra**: Generación automática de un ticket de compra tras la finalización del proceso de checkout, proporcionando un comprobante de la transacción.
+- **Historial de Compras**: Sección dedicada a visualizar todos los tickets de compras realizadas, permitiendo a los usuarios consultar su historial de transacciones.
+- **Wishlist**: Implementación de una lista de deseos (wishlist) con persistencia de estado gracias a localStorage, permitiendo a los usuarios guardar productos para futuras compras.
+
+## Resumen del Proyecto
+Este proyecto ofrece una experiencia de compra integral, integrando funciones como la carga de productos, un checkout eficiente y la emisión automática de tickets. La sección de historial de compras y la lista de deseos mejoran la navegación y personalización del usuario.
+ 
